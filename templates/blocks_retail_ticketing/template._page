@@ -1,0 +1,109 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="TEMPLATE_NAME no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="TEMPLATE_NAME no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="TEMPLATE_NAME no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="TEMPLATE_NAME no-js" lang="en"> <!--<![endif]-->
+<head>
+	<!--
+		REPO_NAME
+		TEMPLATE_NAME
+	-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title><%= title %></title>
+	<meta name="keywords" content="<%=  keywords  %>">
+	<meta name="description" content="<%=  description  %>">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+	<link rel="stylesheet" href="/templates/TEMPLATE_GROUP_NAME/css/style.css">
+	
+	<% if @mode == 'edit' %>
+		<link rel="stylesheet" href="/templates/TEMPLATE_GROUP_NAME/css/blocks.css">
+	<% else %>
+		<script src="/templates/TEMPLATE_GROUP_NAME/js/libs/modernizr-2.5.3.custom.min.js"></script>
+	<% end %>
+</head>
+<body>
+
+	<div id="container">
+		<header>
+			<a href="<%= @page.site.primary_domain %>">LOGO</a>
+		</header>
+
+		<div id="main" role="main">
+			
+			<!-- BREADCRUMBS -->
+			<% @breadcrumbs.each_with_index do |crumb,i| %>
+				<% if i > 0 %>
+					<span>&gt;</span>
+				<% end %>
+				<a href="<%= crumb['url'] %>"><%= crumb['name'] %></a>
+			<% end -%>
+			
+			
+			<!-- NAVIGATION TEMPLATE -->
+			<%= render :navigation => "Main" , :template_name => 'main.nav' %>
+		
+			
+			<!-- LINK REGION -->
+			<%= render :link => "link_region", :text_editable => true, :link_value => "#", :text => "Read More" %>
+			
+			
+			<!-- IMAGE REGION -->
+			<%= render :image => 'image_region', :default => "http://placehold.it/200x200/666/fff&text=Size:+200x200", :width => "200", :height => "200" %>
+			
+			
+			<!-- SINGLE LINE TEXT REGION -->
+			<%= render :textual => 'single_line_text', :default => 'Proin vel ante a orci tempus', :maxlength => '75' %>
+			
+			
+			<!-- RICH TEXT REGION / TinyMCE -->
+			<%= render :textual => 'tiny_mce_text', :type => :multi, :default => "<p><strong>Vivamus id mollis quam. Morbi ac commodo nulla. In condimentum orci id nisl volutpat bibendum..</strong></p><h2>ti sociosqu ad litora torquent per conubia</h2><p>Vivamus id mollis quam. Morbi ac commodo nulla. In condimentum orci id nisl volutpat bibendum. Quisque commodo hendrerit lorem quis egestas. Maecenas quis tortor arcu. Vivamus rutrum nunc non neque consectetur quis placerat neque lobortis.s suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien.</p><ul><li>Vivamus id mollis quam. Morbi ac commodo nulla.</li><li>In condimentum orci id nisl volutpat bibendum. Quisque commodo hendrerit lorem quis egestas. Maecenas quis tortor arcu.</li><li>Proin metus odio, aliquam eget molestie nec</li><li>Vivamus rutrum nunc non</li></ul><p>Vivamus id mollis quam. Morbi ac commodo nulla. In condimentum orci id nisl volutpat bibendum. Quisque commodo hendrerit lorem quis egestas. Maecenas quis tortor arcu. Vivamus rutrum nunc non neque consectetur quis placerat neque lobortis.s suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien.</p>" %>
+			
+			
+			<!-- MULTILINE TEXT REGION (plain text) -->
+			<%= render :textual => 'multi_line_text', :type => :multi, :wysiwyg => false, :default => "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo." %>
+			
+			
+			<!-- REPEATING REGION -->
+			<% render :region => 'repeating_region', :max_repeats => 5 do %>
+				<!-- content -->
+			<% end %>
+			
+			
+			<!-- LINK WRAPPED CONTENT -->
+			<% render :link => "link_wrap", :text_editable => false, :link_value => '#' do %>
+				<!-- content -->
+			<% end %>
+			
+			<!-- MEDIA REGION -->
+			<%= render :media => 'media_region',  :default => "http://placehold.it/400x200", :width => "400", :height => "200" %>
+			
+			
+			<!-- FORM ACTION -->
+			<form method="POST" action="<%= form_action_url('form_action_name') %>" class="" accept-charset="utf-8">
+				<input type="text" name="" value="">
+				<button type="submit">Submit</button>
+			</form>
+			
+			
+			<!-- SITE WIDGET -->
+			<%= include_site_widget('widget_name') %>
+			
+			<!-- GLOBAL WIDGET -->
+			<%= include_widget('widget_name') %>
+			
+		</div>
+		<footer>
+			SCT Melbourne &copy; <%= Time.now.year %>
+		</footer>
+	</div> <!--! end of #container -->
+
+	<script src="/templates/TEMPLATE_GROUP_NAME/js/libs/jquery-1.7.2.min.js"></script>
+	<script src="/templates/TEMPLATE_GROUP_NAME/js/plugins.js"></script>
+	<script src="/templates/TEMPLATE_GROUP_NAME/js/script.js"></script>
+
+</body>
+</html>

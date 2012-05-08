@@ -1,0 +1,230 @@
+body.edit div#blocks-wrapper div#inner-blocks-wrapper textarea {
+	width: 100%;
+}
+
+
+
+/*
+	$LAYOUT
+*/
+
+#container,
+.portrait #container,
+.landscape #container,
+.fixed #container,
+.fixed #container.portrait
+.fixed #container.landscape {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: auto;
+	max-width: 1280px;
+	height: auto;
+}
+
+#container > header,
+#container > footer {
+	position: static;
+	height: auto;
+}
+
+#main {
+	position: static;
+}
+
+.table {
+	display: block;
+	width: auto;
+	height: auto;
+}
+
+.cell {
+}
+
+.content_wrap {
+	height: auto;
+	width: auto;
+}
+
+
+/*
+	$TEXT STYLES
+*/
+
+.white_gradient_text {
+	background: white;
+	-webkit-text-fill-color: inherit;
+	-webkit-background-clip: text;
+	-webkit-text-stroke: 0;
+}
+
+.COLOR_gradient_text {
+	background: #333;
+	-webkit-text-stroke: none;
+	-webkit-text-fill-color: inherit;
+	-webkit-text-stroke: 0;
+}
+
+.inset_shadow_text {
+	-webkit-background-clip: text;
+	background-color: #121212;
+	-webkit-text-fill-color: inherit;
+	text-shadow: none;
+}
+
+.text_only_wrap .textblock {
+	display: block;
+}
+
+
+/*
+	$IMAGES
+*/
+
+figure > img {
+	display: block;
+}
+
+
+
+/*
+	$MARQUEE
+*/
+
+.marquee {
+	display: block;
+	position: static;
+}
+
+
+
+/*
+	$PRODUCT LISTING TEMPLATE
+*/
+
+.product_listing {
+	position: relative;
+	height: auto;
+}
+
+.product_listing .item {
+	position: relative;
+	height: auto;
+}
+
+.product_listing figure {
+	position: static;
+	width: auto;
+	height: auto;
+}
+
+.product_listing figcaption {
+	position: static;
+	width: auto;
+	height: auto;
+	padding: 0;
+}
+
+.product_listing .textbox,
+.product_listing .price,
+.product_listing .gst {
+	position: static;
+}
+
+/* landscape mode */
+
+.landscape .product_listing .item {
+	width: auto;
+	float: none;
+}
+
+.landscape .product_listing figure {
+	height: auto;
+}
+
+.landscape .product_listing figcaption {
+	width: 100%;
+	height: auto;
+	top: 0;
+	left: 0;
+	padding: 0;
+}
+
+.landscape .product_listing h2 {
+}
+
+.landscape .product_listing .textbox {
+	position: static;
+}
+
+.landscape .product_listing .price {
+	position: static;
+}
+
+.landscape .product_listing .gst {
+	position: static;
+}
+
+
+.bevelled {
+	position: relative;
+}
+
+.bevelled:after {
+	display: none;
+}
+
+
+/*
+	TEXT ONLY
+*/
+
+.text_only_wrap {
+	padding: 0;
+}
+
+.text_only_wrap .textblock {
+}
+
+
+/*
+	PRICE LIST TEXT ONLY
+*/
+
+.price_list {
+	margin: 0;
+	height: auto;
+}
+
+.price_list .list_item {
+	height: auto;
+}
+
+.price_list .textbox {
+	position: static;
+	width: auto;
+	height: auto;
+}
+
+.price_list h2 {
+}
+
+.price_list p {
+	
+}
+
+.price_list .price_wrap {
+	position: static;
+}
+
+.price_list .price {
+}
+
+.price_list .gst {
+	position: auto;
+}
+
+
+
+header h1 {
+}

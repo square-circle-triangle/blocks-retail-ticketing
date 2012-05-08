@@ -1,0 +1,5 @@
+<div class="marquee">
+	<% render :region => 'marquee', :max_repeats => 5 do %>
+		<span class="msg"><%= render :textual => 'marquee_msg', :default => 'Proin vel ante a orci tempus', :maxlength => '125' %></span>
+	<% end %>
+</div>

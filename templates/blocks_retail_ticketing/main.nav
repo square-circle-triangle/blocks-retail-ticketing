@@ -1,0 +1,51 @@
+<ul id="" class="top_lvl_menu">
+	<li class="home"><a href="<%= @full_domain %>">Home</a></li>
+	<% @top_level_items.each do |nav_item| %>
+		<li>
+			<%
+				current_class = ''
+				current_class = 'current' if nav_item == @current_page_item
+			%>
+			<% if nav_item.navigable_type == 'Folder' %>
+				<a href="<%= nav_item.children.empty? ? '#' : nav_item.children.first.url %>"><%= nav_item.name %></a>
+			<% else %>
+				<a href="<%= nav_item.url %>" class="<%= current_class %>"><%= nav_item.name %></a>
+			<% end %>
+			
+			<% unless nav_item.children.empty? %>
+				<ul class="secondary_lvl_menu">
+					<% nav_item.children.each do |sub_item| %>
+						<li>
+							
+							<%
+								current_class = ''
+								current_class = 'current' if sub_item == @current_page_item
+							%>
+							
+							<% if sub_item.navigable_type == 'Folder' %>
+								<a href="<%= sub_item.children.empty? ? '#' : sub_item.children.first.url %>" class="folder"><%= sub_item.name %></a>
+							<% elsif !sub_item.children.empty?  %>
+								<a href="<%= sub_item.url %>" class="<%= current_class %> folder"><%= sub_item.name %></a>
+							<% else %>
+								<a href="<%= sub_item.url %>"><%= sub_item.name %></a>
+							<% end %>
+							
+							<% unless sub_item.children.empty? %>
+								<ul class="tertiary_lvl_menu">
+									<% sub_item.children.each do |sub_sub_item| %>
+										<%
+											current_class = ''
+											current_class = 'current' if sub_sub_item == @current_page_item
+										%>
+										<li><a href="<%= sub_sub_item.url %>" class="<%= current_class %>"><%= sub_sub_item.name %></a></li>
+									<% end %>
+								</ul>
+							<% end # of tertiary menu %>
+							
+						</li>
+					<% end %>
+				</ul>
+			<% end # of secondary menu %>
+		</li>
+	<% end # of top lvl menu %>
+</ul>
