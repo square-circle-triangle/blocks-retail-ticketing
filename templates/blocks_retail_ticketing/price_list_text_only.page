@@ -72,7 +72,7 @@
 					
 							<div class="list_item">
 								<div class="textbox">
-									<div class="textbox">
+									<div class="size_to_fit">
 										<h2 class="inset_shadow_text"><%= render :textual => 'heading1', :default => 'Product or service', :maxlength => '50' %></h2>
 										<p class="lr2br">
 											<%= render :textual => 'text1', :type => :multi, :wysiwyg => false, :default => "Lorem ipsum dolor sitecuer amet, consecteture adipiscing elit. Ut in risus nulla. Donecilis bibendum libero id. Lorem ipsum dolor sitecuer amet, consecteture adipiscing elit. Ut in risus nulla. Donecilis bibendum libero id." %>
@@ -89,7 +89,7 @@
 
 							<div class="list_item">
 								<div class="textbox">
-									<div class="textbox">
+									<div class="size_to_fit">
 										<h2 class="inset_shadow_text"><%= render :textual => 'heading2', :default => 'Product or service', :maxlength => '50' %></h2>
 										<p class="lr2br">
 											<%= render :textual => 'text2', :type => :multi, :wysiwyg => false, :default => "Lorem ipsum dolor sitecuer amet, consecteture adipiscing elit. Ut in risus nulla. Donecilis bibendum libero id. Lorem ipsum dolor sitecuer amet, consecteture adipiscing elit. Ut in risus nulla. Donecilis bibendum libero id." %>
@@ -106,7 +106,7 @@
 							
 							<div class="list_item">
 								<div class="textbox">
-									<div class="textbox">
+									<div class="size_to_fit">
 										<h2 class="inset_shadow_text"><%= render :textual => 'heading3', :default => 'Product or service', :maxlength => '50' %></h2>
 										<p class="lr2br">
 											<%= render :textual => 'text3', :type => :multi, :wysiwyg => false, :default => "Lorem ipsum dolor sitecuer amet, consecteture adipiscing elit. Ut in risus nulla. Donecilis bibendum libero id. Lorem ipsum dolor sitecuer amet, consecteture adipiscing elit. Ut in risus nulla. Donecilis bibendum libero id." %>
@@ -123,7 +123,7 @@
 							
 							<div class="list_item">
 								<div class="textbox">
-									<div class="textbox">
+									<div class="size_to_fit">
 										<h2 class="inset_shadow_text"><%= render :textual => 'heading4', :default => 'Product or service', :maxlength => '50' %></h2>
 										<p class="lr2br">
 											<%= render :textual => 'text4', :type => :multi, :wysiwyg => false, :default => "Lorem ipsum dolor sitecuer amet, consecteture adipiscing elit. Ut in risus nulla. Donecilis bibendum libero id. Lorem ipsum dolor sitecuer amet, consecteture adipiscing elit. Ut in risus nulla. Donecilis bibendum libero id." %>
