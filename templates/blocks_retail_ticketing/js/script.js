@@ -472,7 +472,7 @@ app.marquee = (function(){
 			.css({
 				left: _footerWidth+'px',
 				fontSize   : Math.round(_footerHeight*.6)+'px',
-				lineHeight : Math.round(_footerHeight*1.1)+'px'
+				lineHeight : Math.round(_footerHeight*1)+'px'
 			})
 			.show();
 			

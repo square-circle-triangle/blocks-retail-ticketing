@@ -28,29 +28,87 @@
 	
 	<style>
 		<%
-			color_r = @page.site.extra_attributes.find_by_name("BrandColor R").value.to_i
-			color_g = @page.site.extra_attributes.find_by_name("BrandColor G").value.to_i
-			color_b = @page.site.extra_attributes.find_by_name("BrandColor B").value.to_i
-			color_rgb = "#{color_r},#{color_g},#{color_b}"
+			# get values from site attributes
 			
-			color_r_darker = (color_r * 0.7).round
-			color_g_darker = (color_g * 0.7).round
-			color_b_darker = (color_b * 0.7).round
-			color_rgb_darker = "#{color_r_darker},#{color_g_darker},#{color_b_darker}"
+			brand_color_rgb   = @page.site.extra_attributes.find_by_name("BrandColor").value
+			heading_color_rgb = @page.site.extra_attributes.find_by_name("HeadingColor").value
+			text_color_rgb    = @page.site.extra_attributes.find_by_name("TextColor").value
+			content_bg_rgb    = @page.site.extra_attributes.find_by_name("BackgroundColor").value
 			
+			
+			# create darker shade of brand color for gradient
+			
+			brand_color_values = brand_color_rgb.split(',')
+			
+			brand_color_r = brand_color_values[0].to_i
+			brand_color_g = brand_color_values[1].to_i
+			brand_color_b = brand_color_values[2].to_i
+			
+			brand_color_r_darker = (brand_color_r * 0.7).round
+			brand_color_g_darker = (brand_color_g * 0.7).round
+			brand_color_b_darker = (brand_color_b * 0.7).round
+			
+			brand_color_rgb_darker = "#{brand_color_r_darker},#{brand_color_g_darker},#{brand_color_b_darker}"
+			
+			
+			# create darker shade of content background color for gradient
+			
+			content_bg_values = content_bg_rgb.split(',')
+			
+			content_bg_r = content_bg_values[0].to_i
+			content_bg_g = content_bg_values[1].to_i
+			content_bg_b = content_bg_values[2].to_i
+			
+			content_bg_r_darker = (content_bg_r * 0.9).round
+			content_bg_g_darker = (content_bg_g * 0.9).round
+			content_bg_b_darker = (content_bg_b * 0.9).round
+			
+			content_bg_rgb_darker = "#{content_bg_r_darker},#{content_bg_g_darker},#{content_bg_b_darker}"
+			
+			
+			# create darker shade of main text color to sit on brand color
+			
+			heading_color_values = heading_color_rgb.split(',')
+			
+			heading_color_r = heading_color_values[0].to_i
+			heading_color_g = heading_color_values[1].to_i
+			heading_color_b = heading_color_values[2].to_i
+			
+			heading_color_r_darker = (heading_color_r * 0.9).round
+			heading_color_g_darker = (heading_color_g * 0.9).round
+			heading_color_b_darker = (heading_color_b * 0.9).round
+			
+			heading_color_rgb_darker = "#{heading_color_r_darker},#{heading_color_g_darker},#{heading_color_b_darker}"
 		%>
 		.COLOR {
-			color: rgba(<%= color_rgb %>,1);
+			color: rgba(<%= brand_color_rgb %>,1);
 		}
 
 		.COLOR_BG {
-			background-color: rgba(<%= color_rgb %>,1);
+			background-color: rgba(<%= brand_color_rgb %>,1);
 		}
 		
 		.COLOR_gradient_text {
-			background: -webkit-linear-gradient(top, rgba(<%= color_rgb %>,1) 0%,rgba(<%= color_rgb_darker %>,1) 100%);
-			-webkit-text-stroke: 1px rgba(<%= color_rgb_darker %>,1);
-			-webkit-background-clip: text;
+/*			background: -webkit-linear-gradient(top, rgba(<%= brand_color_rgb %>,1) 0%,rgba(<%= brand_color_rgb_darker %>,1) 100%);*/
+			color: rgba(<%= brand_color_rgb %>,1);
+			-webkit-text-stroke: 0px rgba(<%= brand_color_rgb_darker %>,1);
+/*			-webkit-background-clip: text;*/
+		}
+		
+		.white_gradient_text {
+/*			background: -webkit-linear-gradient(top, rgba(<%= heading_color_rgb %>,1) 25%,rgba(<%= heading_color_rgb_darker %>,1) 100%);*/
+			color: rgba(<%= heading_color_rgb %>,1);
+			-webkit-text-stroke: 0px rgba(<%= heading_color_rgb_darker %>,1);
+/*			-webkit-background-clip: text;*/
+		}
+		
+		.marquee {
+			color: rgba(<%= heading_color_rgb %>,1);
+		}
+		
+		#main {
+			color: rgba(<%= text_color_rgb %>,1);
+			background: -webkit-linear-gradient(top, rgba(<%= content_bg_rgb %>,1) 0%,rgba(<%= content_bg_rgb_darker %>,1) 100%);
 		}
 	</style>
 </head>
@@ -64,7 +122,7 @@
 		</header>
 		
 		<div id="main" role="main">	
-			<section class="content_wrap">
+			<section class="content_wrap flex">
 				
 
 				<% render :region => 'text_only_wrap', :max_repeats => 20 do %>
